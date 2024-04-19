@@ -6,22 +6,22 @@ export function sortPosts(selectedValue) {
         case "All":
             selectHeading.textContent = "ALLE INNLEGG";
             break;
-        case "4":
+        case "9":
             selectHeading.textContent = "FENTY BEAUTY";
             break;
-        case "3":
+        case "10":
             selectHeading.textContent = "FENTY SKIN";
             break;
-        case "5":
+        case "15":
             selectHeading.textContent = "SAVAGE X";
             break;
-        case "6":
+        case "12":
             selectHeading.textContent = "MUSIKK";
             break;
-        case "9":
+        case "14":
             selectHeading.textContent = "SAMARBEID";
             break;
-        case "11":
+        case "13":
             selectHeading.textContent = "PRISUTDELINGER";
             break;
         case "1":
