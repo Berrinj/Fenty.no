@@ -36,14 +36,14 @@ const validateInputs = () => {
 
     }
 
-    if (subjectValue.length < 16) {
+    if (subjectValue.length < 6) {
         setError(subject, "Emnet må være på over 15 karakterer");
         isValid = false;
     } else {
         setSuccess(subject);
     }
     
-    if (messageValue.length < 26) {
+    if (messageValue.length < 6) {
         setError(message, "Meldingen må være på over 25 karakterer");
         isValid = false;
     } else {

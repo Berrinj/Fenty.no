@@ -13,6 +13,7 @@ export const params = new URLSearchParams(queryString);
 export const id = params.get("id");
 
 const url =`${FENTY_API_URL}/${id}?_embed`;
+console.log("url", url);
 
 const main = document.querySelector("main");
 const mainContainer = document.querySelector(".single-blogpost-container");
@@ -161,6 +162,7 @@ function handleCommentSubmitted() {
             content: commentValue,
             author_email: emailValue,
         };
+        console.log(commentData);
         commentForm.reset();
         submitCommentToWordPress(commentData);
     }
@@ -295,7 +297,7 @@ async function displayComments() {
 
 displayComments();
 
-const endpointURL = `https://fenty.berremarte.no/wp-json/wp/v2/comments?post=${id}`;
+const endpointURL = `https://fenty.no/wp-json/wp/v2/comments?post=${id}`;
 const commentOnHold = document.querySelector(".comment-on-hold");
 
 function submitCommentToWordPress(commentData) {
