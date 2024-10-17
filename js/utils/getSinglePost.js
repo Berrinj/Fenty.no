@@ -13,7 +13,7 @@ export const params = new URLSearchParams(queryString);
 export const id = params.get("id");
 
 const url =`${FENTY_API_URL}/${id}?_embed`;
-console.log("url", url);
+// console.log("url", url);
 
 const main = document.querySelector("main");
 const mainContainer = document.querySelector(".single-blogpost-container");
@@ -138,96 +138,96 @@ function galleryClassList() {
     
 }
 
-const commentForm = document.getElementById("comment-form");
-document.addEventListener("DOMContentLoaded", function() {
+// const commentForm = document.getElementById("comment-form");
+// document.addEventListener("DOMContentLoaded", function() {
     
-    commentForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        handleCommentSubmitted();
-    })
-})
+//     commentForm.addEventListener("submit", function(event) {
+//         event.preventDefault();
+//         handleCommentSubmitted();
+//     })
+// })
 
-function handleCommentSubmitted() {
-    const username = document.querySelector("#username");
-    const email = document.querySelector("#email");
-    const comment = document.querySelector("#comment");
+// function handleCommentSubmitted() {
+//     const username = document.querySelector("#username");
+//     const email = document.querySelector("#email");
+//     const comment = document.querySelector("#comment");
 
-    if (validateInputs(username, email, comment)) {
-        const usernameValue = document.querySelector("#username").value;
-        const emailValue = document.querySelector("#email").value;
-        const commentValue = document.querySelector("#comment").value;
-        const commentData = {
-            post: id,
-            author_name: usernameValue,
-            content: commentValue,
-            author_email: emailValue,
-        };
-        console.log(commentData);
-        commentForm.reset();
-        submitCommentToWordPress(commentData);
-    }
-}
-const isEmailValid = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-};
+//     if (validateInputs(username, email, comment)) {
+//         const usernameValue = document.querySelector("#username").value;
+//         const emailValue = document.querySelector("#email").value;
+//         const commentValue = document.querySelector("#comment").value;
+//         const commentData = {
+//             post: id,
+//             author_name: usernameValue,
+//             content: commentValue,
+//             author_email: emailValue,
+//         };
+//         console.log(commentData);
+//         commentForm.reset();
+//         submitCommentToWordPress(commentData);
+//     }
+// }
+// const isEmailValid = email => {
+//     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//     return re.test(String(email).toLowerCase());
+// };
 
-const setError = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorMessage = inputControl.querySelector(".form-error");
-    errorMessage.innerText = message;
-}
+// const setError = (element, message) => {
+//     const inputControl = element.parentElement;
+//     const errorMessage = inputControl.querySelector(".form-error");
+//     errorMessage.innerText = message;
+// }
 
-const setSuccess = element => {
-    const inputControl = element.parentElement;
-    const errorMessage = inputControl.querySelector(".form-error");
+// const setSuccess = element => {
+//     const inputControl = element.parentElement;
+//     const errorMessage = inputControl.querySelector(".form-error");
 
-    errorMessage.innerText = "";
-    inputControl.classList.add("success");
-    inputControl.classList.remove("form-error");
-}
+//     errorMessage.innerText = "";
+//     inputControl.classList.add("success");
+//     inputControl.classList.remove("form-error");
+// }
 
-function validateInputs(username, email, comment) {
-    let isValid = true;
-    const usernameTrim = username.value.trim();
-    const emailValue = email.value.trim();
-    const commentTrim = comment.value.trim();
+// function validateInputs(username, email, comment) {
+//     let isValid = true;
+//     const usernameTrim = username.value.trim();
+//     const emailValue = email.value.trim();
+//     const commentTrim = comment.value.trim();
 
-   if (usernameTrim.length < 3) {
-        setError(username, "Navnet må være på 3 eller flere karakterer");
-        isValid = false;
-    } else {
-        setSuccess(username);
-    }
+//    if (usernameTrim.length < 3) {
+//         setError(username, "Navnet må være på 3 eller flere karakterer");
+//         isValid = false;
+//     } else {
+//         setSuccess(username);
+//     }
 
-    if (emailValue === "") {
-        setError(email, "Email er påkrevd");
-        isValid = false;
-    } else if (!isEmailValid(emailValue)) {
-        setError(email, "Skriv inn en ekte email adresse");
-        isValid = false;
-    }else {
-        setSuccess(email);
-    }
+//     if (emailValue === "") {
+//         setError(email, "Email er påkrevd");
+//         isValid = false;
+//     } else if (!isEmailValid(emailValue)) {
+//         setError(email, "Skriv inn en ekte email adresse");
+//         isValid = false;
+//     }else {
+//         setSuccess(email);
+//     }
     
-    if (commentTrim.length < 4) {
-        setError(comment, "Kommentaren kan ikke være under 4 karakterer");
-        isValid = false;
-    } else {
-        setSuccess(comment);
-    }
-    return isValid;
-};
+//     if (commentTrim.length < 4) {
+//         setError(comment, "Kommentaren kan ikke være under 4 karakterer");
+//         isValid = false;
+//     } else {
+//         setSuccess(comment);
+//     }
+//     return isValid;
+// };
 
 const commentContent = document.querySelector(".comment-content");
 const noComment = document.querySelector(".no-comments");
 
-async function fetchCommentsAndUpdateUI() {
+// async function fetchCommentsAndUpdateUI() {
 
-    const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
+//     const comments = await getComments(`${FENTY_COMMENTS_API_URL}?post=${id}`);
 
-    updateCommentSection(comments);
-}
+//     updateCommentSection(comments);
+// }
 
 function updateCommentSection(comments) {
     commentContent.innerHTML = '';
@@ -297,29 +297,30 @@ async function displayComments() {
 
 displayComments();
 
-const endpointURL = `https://fenty.no/wp-json/wp/v2/comments?post=${id}`;
-const commentOnHold = document.querySelector(".comment-on-hold");
+// const endpointURL = `https://fenty.no/wp-json/wp/v2/comments?post=${id}`;
+// const commentOnHold = document.querySelector(".comment-on-hold");
 
-function submitCommentToWordPress(commentData) {
+// function submitCommentToWordPress(commentData) {
 
-    fetch(endpointURL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(commentData),
-    })
-        .then(response => response.json())
-        .then(data => {
+//     fetch(endpointURL, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(commentData),
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             console.log(data);
+//             if (data.status === `hold` ) {
+//                 commentOnHold.innerHTML = `Kommentaren din er til godkjenning.`;
+//             } else {
+//                 commentOnHold.innerHTML = "";
+//             }
+//             fetchCommentsAndUpdateUI();
+//         })
+//         .catch(error => {
+//             console.error('En feil oppsto ved posting av kommentar:', error);
+//         });
+// }
 
-            if (data.status === `hold` ) {
-                commentOnHold.innerHTML = `Kommentaren din er til godkjenning.`;
-            } else {
-                commentOnHold.innerHTML = "";
-            }
-            fetchCommentsAndUpdateUI();
-        })
-        .catch(error => {
-            console.error('En feil oppsto ved posting av kommentar:', error);
-        });
-}

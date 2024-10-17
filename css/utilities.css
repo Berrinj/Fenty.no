@@ -66,8 +66,11 @@ a {
 /* 3. LOADER      */
 
 .loader,
+.posts-loader,
 .loader:before,
-.loader:after {
+.posts-loader:before,
+.loader:after,
+.posts-loader:after {
     border-radius: 50%;
     width: 2.5em;
     height: 2.5em;
@@ -75,7 +78,8 @@ a {
     animation: bblFadInOut 1.8s infinite ease-in-out;
 }
 
-.loader {
+.loader,
+.posts-loader {
     color: #797575;
     font-size: 7px;
     text-indent: -9999em;
@@ -85,18 +89,22 @@ a {
 }
 
 .loader:before,
-.loader:after {
+.posts-loader:before,
+.loader:after,
+.posts-loader:after {
     content: '';
     position: absolute;
     top: 0;
 }
 
-.loader:before {
+.loader:before,
+.posts-loader:before {
     left: -3.5em;
     animation-delay: -0.32s;
 }
 
-.loader:after {
+.loader:after,
+.posts-loader:after {
     left: 3.5em;
 }
 
